@@ -1,0 +1,42 @@
+<form method='POST' action='' class='easy-instagram-settings-form'>
+
+<table class="form-table">
+  <tr valign="top">
+    <th scope="row"><label for="rb-nike-plus_client_id">Client ID</label></th>
+    <td>
+      <input name="rb-nike-plus_client_id" type="text" id="rb-nike-plus_client_id" value="{{ settings.client_id }}" class="regular-text" />
+    </td>
+  </tr>
+  <tr valign="top">
+    <th scope="row"><label for="rb-nike-plus_client_id">Client Secret</label></th>
+    <td>
+      <input name="rb-nike-plus_client_secret" type="text" id="rb-nike-plus_client_secret" value="{{ settings.client_secret }}" class="regular-text" />
+    </td>
+  </tr>
+  <tr valign="top">
+    <th scope="row"><label for="rb-nike-plus_redirct_uri">Redirect URI</label></th>
+    <td>
+      <input name="rb-nike-plus_redirect_uri" type="text" id="rb-nike-plus_redirect_uri" value="{{ settings.redirect_uri }}" class="regular-text" />
+    </td>
+  </tr>
+  <tr valign="top">
+    <th scope="row"><label for="rb-nike-plus_access_token">Access Token</label></th>
+    <td>
+      <input name="rb-nike-plus_access_token" type="text" id="rb-nike-plus_access_token" value="{{ settings.access_token }}" class="regular-text" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input type='hidden' name='rb-nike-plus_general_settings' value='1' />
+      <input type='hidden' name='rb-nike-plus_general_settings_nonce' value='{{ settings.wp_nonce }}' />
+    </td>
+    <td>
+      <input type='submit' value='Save' name='submit' />
+    </td>
+  </tr>
+
+</table>
+
+
+
+</form>
