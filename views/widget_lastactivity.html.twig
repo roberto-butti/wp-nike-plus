@@ -1,0 +1,10 @@
+<div>
+  <div>Date</div>
+  <div>{{ activity.startTime|date("F jS \\a\\t g:ia", activity.activityTimeZone) }}</div>
+  <div>Calories</div>
+  <div>{{ activity.metricSummary.calories }}</div>
+  <div>Distance</div>
+  <div>{{ activity.metricSummary.distance }}</div> 
+  <div>Duration</div>
+  <div>{{ activity.metricSummary.duration }}</div> 
+</div>

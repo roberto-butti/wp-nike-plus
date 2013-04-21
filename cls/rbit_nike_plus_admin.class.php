@@ -2,16 +2,34 @@
 class Rbit_Nike_Plus_Admin {
 
   static function admin_menu() {
-    add_submenu_page(
-      'options-general.php',
+
+
+    add_menu_page(
       __( 'Rbit Nike Plus', Rbit_Nike_Plus::DOMAIN ),
       __( 'Rbit Nike Plus', Rbit_Nike_Plus::DOMAIN ),
       'manage_options',
       Rbit_Nike_Plus::SLUG,
       array( 'Rbit_Nike_Plus_Admin', 'admin_page' )
     );
+    add_submenu_page(
+      Rbit_Nike_Plus::SLUG,
+      __( 'Get activities', Rbit_Nike_Plus::DOMAIN ),
+      __( 'Get activities', Rbit_Nike_Plus::DOMAIN ),
+      'manage_options',
+      Rbit_Nike_Plus::SLUG."-get-activities",
+      array( 'Rbit_Nike_Plus_Admin', 'get_activities' )
+      );
+
   }
 
+  static function page() {
+    echo "A";
+  }
+
+  static function get_activities() {
+    echo Rbit_Nike_Plus::get_activities();
+    
+  }
   static function admin_page() {
     $loader = new Twig_Loader_Filesystem(dirname(__FILE__).'/../views');
     $twig = new Twig_Environment($loader, array(
@@ -24,7 +42,7 @@ class Rbit_Nike_Plus_Admin {
       $settings = Rbit_Nike_Plus_Config::validate_from_array($_POST);
       if ($settings !== FALSE) {
         Rbit_Nike_Plus_Config::save_settings($_POST);
-        var_dump(Rbit_Nike_Plus::get_activities());
+        //var_dump(Rbit_Nike_Plus::get_activities());
       }
     } else {
       $settings = Rbit_Nike_Plus_Config::get_settings();

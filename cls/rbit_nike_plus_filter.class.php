@@ -1,6 +1,13 @@
 <?php
 class Rbit_Nike_Plus_Filter {
 
+// read http://codex.wordpress.org/Function_Reference/add_shortcode
+
+
+  static function last_activity() {
+    return "prova";
+  }
+
   static function content_post($content) {
     return $content." <br/>OK";
   }

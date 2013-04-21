@@ -4,27 +4,19 @@ class Rbit_Nike_Plus {
   const DOMAIN = "rb-nike-plus";
   const SLUG = "rb-nike-plus";
 
-  public static function get_http($url, $access_token) {
-    $curl_handle=curl_init();
-    $data = array('appid: fuelband', "Accept: application/json");
-    curl_setopt($curl_handle,CURLOPT_URL,$url.'?access_token='.$access_token);
-    curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
-    curl_setopt($curl_handle,CURLOPT_HTTPHEADER,$data);
-    curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
-    $buffer = curl_exec($curl_handle);
-    //echo 'Curl error: ' . curl_error($curl_handle);
-    curl_close($curl_handle);
-    if (empty($buffer)) {
-
-      return FALSE;
-    } else {
-      return $buffer;
-    }
-  }
-
   public static function get_activities() {
-    $access_token = $access_token = get_option( Rbit_Nike_Plus::DOMAIN.'_access_token' );
-    $url = "https://api.nike.com/me/sport/activities";
-    return self::get_http($url, $access_token);
+
+    $key = Rbit_Nike_Plus::DOMAIN."-activities";
+    if ( false === ( $retval = get_transient( $key ) ) ) {
+      // It wasn't there, so regenerate the data and save the transient
+      $retval = Rbit_Nike_Plus_Api::get_activities();
+      set_transient( $key, $retval, 60*60*12 );
+    }
+    return $retval;
+    //return $retval;
   }
+
+
+
+
 }
