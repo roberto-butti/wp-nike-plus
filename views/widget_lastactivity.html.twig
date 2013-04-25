@@ -1,5 +1,9 @@
-<aside id="rbit-nike-plus-lastactivity" class="widget widget_rbit-nike-plus-lastactivity">
-  <h3 class="widget-title">Nike Plus</h3>
+{{ args.before_widget|raw }}
+{{ args.before_title|raw }}
+{{ widgettitle }}
+{{ args.after_title|raw }}
+
+
   <div>
     <em>Date</em>: {{ activity.startTime|date("F jS \\a\\t g:ia", activity.activityTimeZone) }}
   </div>
@@ -7,10 +11,10 @@
     <em>Calories</em>: {{ activity.metricSummary.calories }}
   </div>
   <div>
-    <em>Distance</em>: {{ activity.metricSummary.distance }}
+    <em>Distance</em>: {{ activity.metricSummary.distance|number_format(2) }}
   </div> 
   <div>
     <em>Duration</em>: {{ activity.metricSummary.duration }}
   </div> 
   
-</aside>
+{{ args.after_widget|raw }}
