@@ -1,10 +1,16 @@
-<div>
-  <div>Date</div>
-  <div>{{ activity.startTime|date("F jS \\a\\t g:ia", activity.activityTimeZone) }}</div>
-  <div>Calories</div>
-  <div>{{ activity.metricSummary.calories }}</div>
-  <div>Distance</div>
-  <div>{{ activity.metricSummary.distance }}</div> 
-  <div>Duration</div>
-  <div>{{ activity.metricSummary.duration }}</div> 
-</div>
+<aside id="rbit-nike-plus-lastactivity" class="widget widget_rbit-nike-plus-lastactivity">
+  <h3 class="widget-title">Nike Plus</h3>
+  <div>
+    <em>Date</em>: {{ activity.startTime|date("F jS \\a\\t g:ia", activity.activityTimeZone) }}
+  </div>
+  <div>
+    <em>Calories</em>: {{ activity.metricSummary.calories }}
+  </div>
+  <div>
+    <em>Distance</em>: {{ activity.metricSummary.distance }}
+  </div> 
+  <div>
+    <em>Duration</em>: {{ activity.metricSummary.duration }}
+  </div> 
+  
+</aside>
